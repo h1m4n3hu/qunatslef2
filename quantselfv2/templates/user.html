@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantified Self</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue-router@3"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+</head>
+<body>
+
+    <div id="app">
+    <navbar named="{{name}}"></navbar>
+    </div>
+
+    <div class="container my-5">
+        <section>
+            <div class="row">
+            <div class="col-12">
+                <div class="card card-list">
+                <div class="card-header white d-flex justify-content-between align-items-center py-3">
+                    <p class="h5-responsive font-weight-bold mb-0">Your Trackers</p>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Tracker</th>
+                        <th scope="col">Last Tracked</th>
+                        <th scope="col">Add data</th>
+                        <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {%for i in tables.split(",") %}
+                        <tr>
+                        <th scope="row"><a href="view/{{i}}" class="text-primary">{{i.upper()}}</a></th>
+                        <td>Today</td>
+                        <td><h4><a href="add_data/{{i}}" class="badge badge-success">+</a></h4></td>
+                        <td>
+                            <div class="dropdown">
+
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  More Actions
+                                </button>
+
+                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="/edit/{{i}}">Edit</a>
+                                  <a class="dropdown-item" href="/delete/{{i}}">Delete</a>
+                                  <a class="dropdown-item" href="/export/{{i}}">Export</a>
+                                  <a class="dropdown-item" href="/remind/{{i}}">Remind</a>
+                               </div>
+                            </div>
+                        </td>
+                        </tr>
+                        {%endfor%}
+                        
+                    </tbody>
+                    </table>
+                </div>
+                <div class="card-footer white py-3 d-flex justify-content-between">
+                    <a class="btn btn-primary btn-md px-3 my-0 mr-0 text-white" href="/newtracker">New Tracker</a>
+                    <a class="btn btn-info btn-md px-3 my-0 mr-0 text-white" href="/import">Or import a tracker</a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+  <script src="{{ url_for('static', filename='homevue.js') }}"></script>
+  <!-- <script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+  </script> -->
+</html>

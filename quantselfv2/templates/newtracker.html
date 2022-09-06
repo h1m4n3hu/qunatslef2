@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantified Self</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+</head>
+    <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light white" style="background-image: url(https://blog.redbubble.com/wp-content/uploads/2018/05/andywestface_keep-think-creative-banner.jpg);">
+    <div class="container"> 
+        <span class="navbar-brand" href="#"><h1>Hi {{name}}</h1></span>
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+            <a href="" class="nav-link btn-dark text-white rounded waves-effect mr-2">Logout</a>
+            </li>
+        </ul>
+    </div> 
+    </nav>
+
+    <div class="container py-5 z-depth-1">
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+        <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form class="text-center" action="#" method="POST">
+            <h3 class="font-weight-bold">Add Tracker</h3>
+            <input type="text" id="defaultContactFormName" class="form-control mb-3" name="tname" placeholder="Tracker Name">
+            <div class="form-group"><textarea class="form-control rounded-0" name="tdescr" id="exampleFormControlTextarea2" rows="3" placeholder="Description"></textarea></div>
+            <label>TRACKER TYPE</label>
+            <select class="browser-default custom-select mb-4" name="tselect" onchange="if (this.value=='2'){this.form['tset'].style.visibility='visible'}else {this.form['tset'].style.visibility='hidden'};">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Numerical</option>
+                <option value="2">Multiple Choice</option>
+                <option value="3">Time Stamp</option>
+            </select>
+            <input type="text" id="defaultContactFormEmail" class="form-control mb-4" name="tset" placeholder="Settings" style="visibility:hidden;">
+            <button class="btn btn-info btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+    </section>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

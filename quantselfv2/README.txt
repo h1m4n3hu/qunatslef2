@@ -1,0 +1,18 @@
+Quantified Self v.2
+
+
+dependencies:
+
+# Flask Framework
+Flask==1.0.2
+
+# Flask Packages
+Flask-Login==0.4.0
+Flask-Migrate==2.0.2
+Flask-Script==2.0.5
+Flask-SQLAlchemy==2.4.0
+Flask-WTF==0.14.2
+Flask-User==1.0.1.5
+
+
+run ```python app.py```

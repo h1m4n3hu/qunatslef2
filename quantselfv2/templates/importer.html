@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantified Self</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+  </head>
+  <body>
+    <div id="app">
+    <navbar named="{{name}}"></navbar>
+    </div>
+
+    <div class="container my-5 px-0 z-depth-1">
+	<section class="text-center white-text grey p-5">
+		<div class="row d-flex justify-content-center">
+		<div class="col-md-6">
+			<h3 class="font-weight-bold">Import tracker</h3>
+			<p>Click Load file to import a tracker.</p>
+      
+      <form method="POST">
+      <input type="hidden" id="inputTextToSave" name="trackerinfo" readonly><br>
+      <input type="file" id="fileToLoad"><br><br>
+      <button type="button" onclick="loadFileAsText()" class="btn btn-md waves-effect btn-danger">Load File</button><br><br>
+      <input type="text" id="tabname" name="trackerinfo" placeholder="Confirm Table Name" readonly><br><br>
+      <button type="submit" class="btn btn-md waves-effect btn-danger">Confirm</button>
+      </form>
+
+		</div>
+		</div>
+	</section>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='homevue.js') }}"></script>
+  </body>
+
+  <script type="text/javascript">
+
+    function destroyClickedElement(event)
+    {
+        document.body.removeChild(event.target);
+    }
+     
+    function loadFileAsText()
+    {
+        var fileToLoad = document.getElementById("fileToLoad").files[0];
+     
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent) 
+        {
+            var textFromFileLoaded = fileLoadedEvent.target.result;
+            document.getElementById("inputTextToSave").value = textFromFileLoaded;
+            document.getElementById("tabname").value = eval((textFromFileLoaded.split(","))[1].trim());
+            console.log(textFromFileLoaded);
+        };
+        fileReader.readAsText(fileToLoad, "UTF-8");
+    }
+     
+    </script>
+</html>

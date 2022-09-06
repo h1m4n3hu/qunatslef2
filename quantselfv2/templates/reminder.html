@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantified Self</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    <navbar named="{{name}}"></navbar>
+
+    <div class="container my-5 px-0 z-depth-1">
+	<section class="text-center white-text grey p-5">
+		<div class="row d-flex justify-content-center">
+		<div class="col-md-6">
+
+      <form class="text-center">
+			<h3 class="font-weight-bold">Enter time to enable reminder for {{table}} tracker</h3><br>
+      <input type="time" name="alertime" id="inputTextToSave"><br><br>
+      <input type="text" name="alertext" v-model="message" id="inputTextToSave"><br><br>
+			<button class="btn btn-md waves-effect btn-danger" @click="send_message" role="button">Enable Notification</button>
+      </form>
+
+		</div>
+		</div>
+	</section>
+    </div>
+
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='timervue.js') }}"></script>
+  </body>
+  </html>

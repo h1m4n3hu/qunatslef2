@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantified Self</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css">
+  </head>
+  <body>
+    <div id="app">
+    <navbar named="{{name}}"></navbar>
+    </div>
+
+  <div class="container my-5">
+    <h2>Add data in {{table}}</h2>
+	<section>
+    <form method="POST">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6"><br>
+      <div class="md-form md-outline form-lg"><input type="text" name="when" id="form1" class="form-control form-control-lg" placeholder="When"></div><br>
+      <div class="md-form md-outline form-lg"><input type="text" name="value" id="form2" class="form-control form-control-lg" placeholder="Value"></div><br>
+      <div class="md-form md-outline form-lg"><input type="text" name="notes" id="form2" class="form-control form-control-lg" placeholder="Notes"></div><br>
+      <button type="submit" class="btn btn-block btn-primary btn-lg">Submit</button><br>
+      </div>
+    </div>
+    </form>
+	</section>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='homevue.js') }}"></script>
+  </body>
+</html>
